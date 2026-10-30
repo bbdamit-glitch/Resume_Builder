@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: resumeforge-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: resumeforge
+      POSTGRES_PASSWORD: resumeforge
+      POSTGRES_DB: resumeforge
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
